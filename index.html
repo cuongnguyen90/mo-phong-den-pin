@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<script>
+    let BATTETY = function () {
+        this.setEnergy = function (energy) {
+            this.energy = energy;
+        }
+        this.getEnergy = function () {
+            return this.energy;
+        }
+
+        this.descraseEnergy = function () {
+            if (this.energy > 0){
+                this.energy--;
+            }
+        }
+    }
+
+    let LIGHTLAMP = function(){
+
+        this.setPower = function (pin) {
+            this.power = pin;
+        }
+
+        this.getPowerInfo = function () {
+           return this.power.getEnergy();
+        }
+        this.light = function () {
+            if (this.status){
+                return "Lighting"
+            }else{
+                return "No Light"
+            }
+        }
+        this.turnOn = function () {
+            return this.status = true;
+        }
+        this.turnOff = function () {
+            return this.status = false;
+        }
+    }
+
+    let pin = new BATTETY();
+    pin.setEnergy(100);
+    pin.descraseEnergy();
+
+    let lamp = new LIGHTLAMP();
+    lamp.setPower(pin);
+
+    lamp.turnOff();
+
+   console.log(lamp.status);
+
+</script>
+</body>
+</html>
